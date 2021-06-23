@@ -4,10 +4,168 @@
 
 {% block css %}
 
+.carousel{
+width: 99%;
+
+margin-top:1%;
+margin-left:0.5%;
+}
+.carousel-inner{
+margin: 0 7% 0 7%;
+width:85%;
+align-items:center;
+}
+.card{
+display:inline-block;
+margin: 0 -2px 0 -2px;
+
+}
+.carousel-control-prev,
+.carousel-control-next {
+background-color: gray;
+}
+.carousel .carousel-indicators button
+{  background-color: gray; }
+
 
 {% endblock %}
 
 {% block body %}
 {% load static %}
+
+<div id="mycarousel" class="carousel slide" data-bs-ride="carousel">
+<!-- This is a container for our carousel
+Id is provided for styling purpose,
+class=carousel specifies that the slide contains a carousel,
+class=slide ensures the sliding effect.
+data-bs-ride=carousel ensures the start of animation as soon as page loads.-->
+
+    <div class="carousel-indicators">
+        <!-- This is a conainer to store the buttons at the bottom, which indicates the current slide
+        data-target attribute points to the id of the carousel
+        data-slide-to attribute specifies, which slide to go-->
+        <button data-bs-target="#mycarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="slide 0"></button>
+        <button data-bs-target="#mycarousel" data-bs-slide-to="1" aria-label="slide 1"></button>
+        <button data-bs-target="#mycarousel" data-bs-slide-to="2" aria-label="slide 2"></button>
+
+    </div>
+    <div class="carousel-inner">
+        <!-- carousel-inner is a wrapper div for our slides,
+        Each carousel-item is a different slide-->
+        <div class="carousel-item active">
+            <div class="card col-md-3">
+                <img src="{% static 'shop/aalu.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card col-md-3">
+                <img src="{% static 'shop/aalu.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card col-md-3">
+                <img src="{% static 'shop/aalu.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card col-md-3">
+                <img src="{% static 'shop/aalu.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="card col-md-3">
+                <img src="{% static 'shop/aalu.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card col-md-3">
+                <img src="{% static 'shop/aalu.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card col-md-3">
+                <img src="{% static 'shop/aalu.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card col-md-3">
+                <img src="{% static 'shop/aalu.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="card col-md-3">
+                <img src="{% static 'shop/aalu.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card col-md-3">
+                <img src="{% static 'shop/aalu.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card col-md-3">
+                <img src="{% static 'shop/aalu.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            <div class="card col-md-3">
+                <img src="{% static 'shop/aalu.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="carousel-control-prev btn btn-primary" type="button" data-bs-target="#mycarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mycarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+</div>
 
 {% endblock %}
