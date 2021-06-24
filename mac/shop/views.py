@@ -7,7 +7,7 @@ def index(request):
     prods=Product.objects.all()
     n=len(prods)
     n_slices=ceil(n/4)
-    params={"n":range(1,n_slices),'product':prods}
+    params={"nslices":range(1,n_slices),'products':prods}
     return render(request,'shop/index.html',params)
 def about(request):
     return HttpResponse('We are on the about page')
