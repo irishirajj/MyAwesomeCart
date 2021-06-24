@@ -26,6 +26,7 @@ margin: 0 -2px 0 -2px;
 
 .carousel-control-prev,
 .carousel-control-next {
+background-image: none;
 width:7.5%;
 }
 
@@ -59,8 +60,9 @@ data-bs-ride=carousel ensures the start of animation as soon as page loads.-->
         data-target attribute points to the id of the carousel
         data-slide-to attribute specifies, which slide to go-->
         <button data-bs-target="#mycarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="slide 0"></button>
-        <button data-bs-target="#mycarousel" data-bs-slide-to="1" aria-label="slide 1"></button>
-        <button data-bs-target="#mycarousel" data-bs-slide-to="2" aria-label="slide 2"></button>
+        {% for i in n %}<!--Successfully looped the indicators-->
+        <button data-bs-target="#mycarousel" data-bs-slide-to="{{i}}" aria-label="slide"+{{i}}></button>
+        {% endfor %}
 
     </div>
     <div class="carousel-inner">
@@ -75,6 +77,7 @@ data-bs-ride=carousel ensures the start of animation as soon as page loads.-->
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
+
             <div class="card col-md-3">
                 <img src="{% static 'shop/aalu.jpg' %}" class="card-img-top" alt="...">
                 <div class="card-body">
