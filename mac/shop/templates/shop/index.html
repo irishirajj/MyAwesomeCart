@@ -62,8 +62,10 @@ height:60px;
 
 {% block body %}
 {% load static %}
-
-<div id="mycarousel" class="carousel slide" data-bs-ride="carousel">
+<!--Slideshow starts here-->
+{% for nslides, products in allProds %}
+<h1>{{products.0.category}}</h1>
+<div id="mycarousel{{forloop.counter}}" class="carousel slide" data-bs-ride="carousel">
 <!-- This is a container for our carousel
 Id is provided for styling purpose,
 class=carousel specifies that the slide contains a carousel,
@@ -74,9 +76,9 @@ data-bs-ride=carousel ensures the start of animation as soon as page loads.-->
         <!-- This is a conainer to store the buttons at the bottom, which indicates the current slide
         data-target attribute points to the id of the carousel
         data-slide-to attribute specifies, which slide to go-->
-        <button data-bs-target="#mycarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="slide 0"></button>
-        {% for i in nslices %}<!--Successfully looped the indicators-->
-        <button data-bs-target="#mycarousel" data-bs-slide-to="{{i}}" aria-label="slide"+{{i}}></button>
+        <button data-bs-target="#mycarousel{{forloop.counter}}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="slide 0"></button>
+        {% for i in nslides %}<!--Successfully looped the indicators-->
+        <button data-bs-target="#mycarousel{{forloop.parentloop.counter}}" data-bs-slide-to="{{i}}" aria-label="slide"+{{i}}></button>
         {% endfor %}
 
     </div>
@@ -100,16 +102,16 @@ data-bs-ride=carousel ensures the start of animation as soon as page loads.-->
             </div>
     </div>
     <div class="button-container">
-        <button class="carousel-control-prev" type="button" data-bs-target="#mycarousel" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#mycarousel{{forloop.counter}}" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#mycarousel" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#mycarousel{{forloop.counter}}" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
     </div>
 
 </div>
-
+{% endfor %}
 {% endblock %}

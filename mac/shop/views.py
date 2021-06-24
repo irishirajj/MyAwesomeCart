@@ -4,10 +4,12 @@ from math import ceil
 # Create your views here.
 from django.http import HttpResponse
 def index(request):
-    prods=Product.objects.all()
-    n=len(prods)
-    n_slices=ceil(n/4)
-    params={"nslices":range(1,n_slices),'products':prods}
+    products=Product.objects.all()
+    n=len(products)
+    n_slides=ceil(n/4)
+    #params={"nslides":range(1,n_slides),'products':products}
+    allProds=[[range(1,n_slides), products],[range(1,n_slides), products]]
+    params={'allProds':allProds}
     return render(request,'shop/index.html',params)
 def about(request):
     return HttpResponse('We are on the about page')
