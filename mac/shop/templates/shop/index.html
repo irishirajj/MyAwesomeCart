@@ -14,7 +14,7 @@ margin-left:0.5%;
 {  background-color: black; }
 
 .carousel-inner{
-margin: 0 7% 0 7%;
+margin: 0 8% 0 8%;
 width:85%;
 align-items:center;
 }
@@ -22,6 +22,7 @@ align-items:center;
 .card{
 display:inline-block;
 margin: 0 -2px 0 -2px;
+
 }
 .col-md-3{
 display:inline-block;
@@ -34,11 +35,15 @@ aspect-ratio:9/10;
 .carousel-control-prev,
 .carousel-control-next {
 background-image: none;
-width:7.5%;
+width:6%;
+}
+.carousel-control-prev{
+margin-left:0px;
 }
 
 .carousel-control-next-icon:after
 {
+
   content: '>';
   font-size: 55px;
   color: red;
@@ -57,6 +62,12 @@ height:36px;
 }
 .btn btn-primary{
 height:60px;
+padding:0 0 0 0;
+text-align:center;
+}
+.buton{
+font-size:11px;
+margin:0 0 0 0;
 }
 {% endblock %}
 
@@ -87,12 +98,13 @@ data-bs-ride=carousel ensures the start of animation as soon as page loads.-->
         Each carousel-item is a different slide-->
         <div class="carousel-item active">
             {% for prod in products %}
-            <div class="card col-md-3">
+            <div class="card col-3">
                 <img src="/media/{{prod.image}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h6 class="card-title">{{prod.product_name}}</h6>
                     <p class="card-text">{{prod.desc}}</p>
-                    <a href="#" class="btn btn-primary">${{prod.price}}  add to cart</a>
+                    <button id="pr{{prod.id}}" class="btn btn-primary cart"><span class="buton">Add to cart</span></button>
+                    <a href="products/{{prod.id}}"><button id="qv{{prod.id}}" class="btn btn-primary cart"><span class="buton">Quick View</span></button></a>
                 </div>
             </div>
             {% if forloop.counter|divisibleby:"4"  and not forloop.last %}
@@ -114,4 +126,40 @@ data-bs-ride=carousel ensures the start of animation as soon as page loads.-->
 
 </div>
 {% endfor %}
+{% endblock %}
+
+{% block js %}
+<script>
+
+
+    console.log('Sab badhiya hai')
+    if(localStorage.getItem('cart')==undefined){
+    var cart={};
+    }
+    else{
+    cart=JSON.parse(localStorage.getItem('cart'));
+    document.getElementById('navcart').innerHTML=Object.keys(cart).length;
+    }
+    $('.cart').click(function(){
+    console.log('clicked');
+    var idstr=this.id.toString();
+    console.log(idstr);
+    if(cart[idstr]==undefined){
+    cart[idstr]=1;
+    }
+    else{
+    cart[idstr]+=1;
+    }
+    console.log(cart);
+    localStorage.setItem('cart',JSON.stringify(cart));
+    document.getElementById('navcart').innerHTML=Object.keys(cart).length;
+    });
+    $(document).ready(function(){
+    $('[data-bs-toggle="popover"]').popover();
+    });
+    document.getElementById('popacart').setAttribute("data-bs-content","<h1>cart</h1>");
+
+
+
+</script>
 {% endblock %}
